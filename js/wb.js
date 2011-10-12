@@ -12,7 +12,6 @@ context = document.getElementById('whiteboard').getContext("2d");
 canvas = document.getElementById('whiteboard');
 
 /* ! Basic functions: drawing stuff */
-/* I wonder why changes take so long to apply */
 
 $('#whiteboard').mousedown(function(e){
 	var mouseX = e.pageX - this.offsetLeft;
@@ -75,9 +74,9 @@ function redraw(){
 function clearCanvas(){
     context.clearRect(0, 0, canvas.width, canvas.height);
   	canvas.width = canvas.width;  
-    clickX = new Array();
-    clickY = new Array();
-    clickDrag = new Array();
+    clickX = new Array(); 			//
+    clickY = new Array(); 			// This bit prevents the canvas from "remembering" the previous state after being cleared. 	
+    clickDrag = new Array(); 		//
 }
 
 
