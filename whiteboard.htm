@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Whiteboard</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/> 
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<link rel="stylesheet" href="css/style.css"/>
+  <link href='http://fonts.googleapis.com/css?family=Andada' rel='stylesheet' type='text/css'>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+	<script src="http://cdn.jquerytools.org/1.2.6/jquery.tools.min.js"></script>
+
+</head>
+
+<body style="background: #ccc;">
+  <div id="container">
+  <header>
+  <h2>Whiteboard</h2>
+  <p>An attempt to create a interactive, 2-way whiteboard using the <span class="code">canvas</span> element and websockets.</p>
+  </header>
+
+
+  <canvas id="whiteboard" width="980" height="350">
+  <div id="ohNoes">
+	  <p>Oh! It seems your browser doesn't understand what a <span class="code">"canvas"</span> is. </p>
+	  <p>Unfortunatelly, that is a very important part of the experience you are about to have here.</p>
+	  <p>Fear not! Just click the link below and it will learn how to handle it in no time!</p>
+	  <a href="http://www.google.com/chromeframe">Get Google Frame</a>
+	  <p>Ah! And don't forget to come back here and refresh this page.</p>
+
+  </div>
+  </canvas>
+
+  <ul id="onlineUsers">
+  	<li>Online now: </li>
+  	<li class="usernames" style="background: #800040;">Student</li>
+  	<li class="usernames" style="background: #408000;">Teacher</li>
+  </ul>
+  
+  <ul id="toolbox">
+  	<li id="toolEraser" class="button">Clear</li>
+  </ul>
+  
+  </div>
+
+  <footer>
+  </footer>
+
+  <script src="js/wb.js"></script>
+</body>
+
+</html>
