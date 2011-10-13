@@ -11,6 +11,24 @@ Notes:					The code below draws heavily from this tutorial: http://www.williamma
 context = document.getElementById('whiteboard').getContext("2d");	
 canvas = document.getElementById('whiteboard');
 
+/* Colors */
+
+var colors = {
+	colorPurple : "#cb3594",
+	colorGreen : "#659b41",
+	colorYellow : "#ffcf33",
+	colorBrown : "#986928",
+};
+
+var clickSize = new Array();
+var curSize = "normal";
+
+var curColor = colors[colorPurple];
+var clickColor = new Array();
+clickColor.push(curColor);
+
+
+
 /* ! Basic functions: drawing stuff */
 
 $('#whiteboard').mousedown(function(e){
@@ -19,7 +37,7 @@ $('#whiteboard').mousedown(function(e){
 		
 	paint = true;
 	addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-	//redraw();
+	redraw();
 });	
 
 $('#whiteboard').mousemove(function(e){
@@ -48,12 +66,13 @@ function addClick(x, y, dragging)
 clickX.push(x);
 clickY.push(y);
 clickDrag.push(dragging);
+clickSize.push(curSize);
 }
 
 function redraw(){
 	canvas.width = canvas.width;
   context.beginPath();
-  context.strokeStyle = "#df4b26";
+  context.strokeStyle = curColor; 
   context.lineJoin = "round";
   context.lineWidth = 3;
 			
@@ -67,8 +86,10 @@ function redraw(){
      }
      context.lineTo(clickX[i], clickY[i]);
      context.closePath();
+     context.lineWidth = radius;
      context.stroke();
   }
+
 }	
 
 function clearCanvas(){
@@ -79,10 +100,21 @@ function clearCanvas(){
     clickDrag = new Array(); 		//
 }
 
+/* Toolbox */
 
+/* Clear */
 $(function() {
 	$("#toolEraser").click(function(){
 		clearCanvas();	
 		}
 	);
+});
+
+/* Colors */
+$(function() {
+	$(".toolColor").click(function(){
+		content = colors[$(this).attr("id")];
+		var curColor = content;
+		console.log(curColor);
+	})
 });

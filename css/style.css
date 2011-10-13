@@ -150,3 +150,14 @@ ul#thumbs li a, ul#thumbs li a:hover{
 	float: right;
 	text-align: right;
 }
+
+.toolColor{
+	width: 10px;
+	height: 10px;
+	background: #fff;
+}
+
+#colorPurple	{background:	#cb3594; }
+#colorGreen 	{background:	#659b41; }
+#colorYellow 	{background:	#ffcf33; }
+#colorBrown 	{background:	#986928; }
